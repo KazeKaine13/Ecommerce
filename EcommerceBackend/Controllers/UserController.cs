@@ -39,13 +39,6 @@ using Models;
                     return CreatedAtAction(nameof(GetUser),
                                      new {id = user.Id}, user);
                 }
-        }
-        public class CreateUserRequest{
-            public string Username {get; set;}
-            public string Password {get; set;}
-            public string FullName {get; set;}
-            public string Phone {get; set;}
-
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id){
             var user = await _context.Users.FindAsync(id);
@@ -53,6 +46,14 @@ using Models;
                 return NotFound();
             return user;
         }
+        }
+        
+        public class CreateUserRequest{
+            public string Username {get; set;}
+            public string Password {get; set;}
+            public string FullName {get; set;}
+            public string Phone {get; set;}
+
         }
         
     }

@@ -15,7 +15,7 @@ namespace Models{
 
         [Required]
         [Column(TypeName = "varchar(255)")]
-        public string Passwword {get; set;} // Tạo Password
+        public string Password {get; set;} // Tạo Password
 
         [Required]
         public string FullName {get; set;} // Nếu không định nghĩa nó sẽ theo kiểu string
