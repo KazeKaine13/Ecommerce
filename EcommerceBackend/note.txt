@@ -1,0 +1,43 @@
+Kiểm tra version : dotnet --version
+Tạo thư mục mới: mkdir {name}
+Đến 1 thư mục: cd {tên}
+Tạo 1 dự án mới: dotnet new webapi -n {tên dự án}
+Để back lại câu lệnh trước: mũi tên hướng lên
+Nếu lỗi ở máy trường: dotnet nuget list source  
+dotnet nuget enable source "nuget.org"
+Search entityframework, EntityFrameworkCore.Design, EntityFrameWorkCore.Tools  trong web nuget rồi tìm version phù hợp, như ở máy trường là ver 7.0.20, copy ra thư mục trong VS code để chạy lệnh
+dotnet build: Dịch mã để server đọc được, giống run ở IDE hay = migrate ở python
+dotnet run: Tạo 1 server để chạy trang web, bấm chạy và vào miền local host, dùng swagger để kiểm tra web chạy chưa : ví dụ http://localhost:5169/swagger 
+Sau đó try it out => execute để kt, nếu báo 200 là thành công
+Sau đó mở folder CommerceBackend ở thanh công cụ Vscode
+Sau đó kết nối git: như ví dụ là ở thư mục Ecommerce
+Sau đó, kết nối github bằng lệnh: gh auth login (nếu lỗi vào cli.github.com để tải lại git trên máy tính, cài xong mở command prompt ở trên máy để kiểm tra xem thành công chưa)
+(How to chia sẻ file: Tạo share ở file cần chia sẻ, kiếm ipconfig rồi share cho mn = windows + R => \\10.200.171.200)
+Tắt đi bật lại Vscode, Chạy lại gh auth login và bấm enter cho đến khi lên lên trang login(dùng phương thức github.com và https), đăng nhập vào, nó bắt lấy mã thì lấy code nó đamg hiện ra trên Vscode, rồi xác nhận.
+Đẩy dự án lên responsitory: có thể tạo dự án trên trên giao diện github hoặc tạo bằng dòng lệnh do vừa đăng nhập trên VSCode: 
+1.	Ra dự án cần tạo res, ở đây là ecommerce
+2.	 Viết lệnh gh repo create {tên} --private(có thể public or internal)
+
+Đẩy file EcommerceBackend lên res: git init(Khởi tạo git trên thư mục) => git add .
+
+Xác nhận người dùng dùng git: 
+Git config --global user.email “tên email”
+Git config --global user.name “tên người dùng”
+Báo đẩy dữ liệu lên git:
+Git commit -m “comment” 
+
+Điều hướng đường dẫn để đẩy lên:
+git remote add origin (tên trang web) https://github.com/KazeKaine13/Ecommerce.git
+
+Đẩy dữ liệu lên
+Git push -u origin master(mặc định là master, nếu đặt nhánh main thì mới để main) --force(nếu có lỗi)
+Git exnor gì đó vs thư mục bin để tải tránh tài nguyên
+
+Với file  ecomerceBackend, tạo file Models., trong Models tạo file User.cs
+Tạo file data, AppDBContext.cs, thay đổi thông tin trong app sau đó dotnet build để check lỗi , fix xong dùng dotnet ef migrations add KhoiTao và dotnet ef database update
+
+sau đó nó sẽ tạo 1 table Users trog csdl vfa tạo 1 file migrations. 
+Tạo 1 dir Controller nếu ko có sẵn. tạo file UserController.cs và thiết lập
+Với password thì chạy cmd dotnet add package BCrypt.Net-Next --version 4.0.2 để tạo mã hóa
+
+
